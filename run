@@ -1,0 +1,11 @@
+#!/bin/bash
+
+xhost +
+docker run -ti --rm --privileged --name svxlink \
+           --mount type=bind,source="$(pwd)"/config,target=/root/.config/SvxLink \
+           --mount type=bind,source="$(pwd)"/svxlink,target=/etc/svxlink \
+           -e DISPLAY=$DISPLAY \
+           -v /tmp/.X11-unix:/tmp/.X11-unix \
+           -v $HOME/.Xauthority:/root/.Xauthority \
+              joergklein/svxlink /bin/sh
+
