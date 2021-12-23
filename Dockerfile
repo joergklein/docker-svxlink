@@ -12,7 +12,7 @@ RUN dnf update -y  \
     && rm -rf /var/cache/dnf
 
 # Download the source file
-ENV VERSION master
+ENV VERSION 19.09.2
 ENV BINARY ${VERSION}.zip
 
 RUN curl -LJO https://github.com/sm0svx/svxlink/archive/${BINARY} \
